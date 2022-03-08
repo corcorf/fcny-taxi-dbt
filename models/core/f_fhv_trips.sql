@@ -29,8 +29,8 @@ from
 left join
     d_zones pz
 on
-    u.pickup_locationid = pz.locationid
+    t.pickup_locationid = pz.locationid
 left join
     d_zones dz
 on
-    u.pickup_locationid = dz.locationid
+    t.pickup_locationid = dz.locationid

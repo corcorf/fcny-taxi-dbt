@@ -3,7 +3,7 @@
 select
     -- identifiers
     {{ dbt_utils.surrogate_key(['dispatching_base_num', 'pickup_datetime']) }} as tripid,
-    cast(dispatching_base_num as integer) as dispatching_base_num,
+    cast(dispatching_base_num as string) as dispatching_base_num,
     cast(pulocationid as integer) as  pickup_locationid,
     cast(dolocationid as integer) as dropoff_locationid,
 
@@ -12,7 +12,7 @@ select
     cast(dropoff_datetime as timestamp) as dropoff_datetime,
 
     -- trip info
-    sr_flag,
+    cast(sr_flag as integer) sr_flag,
     affiliated_base_number
 from `fcny-taxi`.`trips_data_all`.`fhv_tripdata`
 where dispatching_base_num IS NOT NULL
